@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Форма онлайн-записи на СТО</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="main">
+				<h2>Онлайн-запись на услуги СТО<h2>
+				<img src="res/sto.jpg" width="800" height="320"></img>
+			</div>
+		</header>
+
+		<section class="site-content">
+			<div>
+				<form method="post" action="db.php">
+					<p>
+					<label for="name">Укажите свои ФИО:</label></br>
+					<input type="text" name="name"/></p>
+					<p>
+					<label for="telephone">Укажите свой контактный телефон:</label></br>	
+					<input type="tel" name="telephone"/></p>
+					<p>
+					<label for="date">Выберите желаемую дату записи:</label></br>
+					<input type="date" name="date"/></p>
+					<p><label for="brand">Выберите марку автомобиля:</label></br>
+					<details name="brand">
+						<summary>Марка автомобиля</summary>
+						<ul>
+							<li>Иномарка<input type="checkbox" name="foreign_brand"/></li>
+							<li>Отечественный автомобиль<input type="checkbox" name="domestic_brand"/></li>
+						</ul>
+					</details></p>
+					<p><label for="problem">Опишите проблему или желаемую услугу:</label></br>
+					<textarea name="problem" placeholder="Не более 200 символов" maxlength="200"></textarea></p>
+					<p><input type="submit" name="Записаться"/></p>
+				</form>
+			</div>
+		</section>
+
+		<footer class="site-footer">
+	      <div class="container">
+	        <p>© Баранин М.И., 2021</p>
+	        <p>Форма онлайн-записи на СТО</p>
+	      </div>
+	    </footer>
+	</body>
+</html>
