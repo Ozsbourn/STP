@@ -73,8 +73,39 @@
 									<li>BMW<input type="checkbox" name="bmw_brand"/></li>
 								</ul>
 							</details></p>
-=======
->>>>>>> 234a505c0fd8c276d0c485fa8ec83ffa6a48fedc
+						</ul>
+					</details></p>
+					<p><label for="problem">Опишите проблему или желаемую услугу:</label></br>
+					<textarea name="problem" placeholder="Не более 200 символов" maxlength="200"></textarea></p>
+					<p><input type="submit" name="Записаться"/></p>
+				</form>
+			</div>
+
+			<div>
+				<form method="post" action="db.php">
+					<p>
+					<label for="name">Укажите свои ФИО:</label></br>
+					<input type="text" name="name"/></p>
+					<p>
+					<label for="telephone">Укажите свой контактный телефон:</label></br>	
+					<input type="tel" name="telephone"/></p>
+					<p>
+					<label for="date">Выберите желаемую дату записи:</label></br>
+					<input type="date" name="date"/></p>
+					<p><label for="brand">Выберите марку автомобиля:</label></br>
+					<details name="brand">
+						<summary>Марка автомобиля</summary>
+						<ul>
+							<li>Иномарка<input type="checkbox" name="foreign_brand"/></li>
+							<li>Отечественный автомобиль<input type="checkbox" name="domestic_brand"/></li>
+							<details name="brand">
+							<summary>Марка</summary>
+								<ul>
+									<li>Toyota<input type="checkbox" name="toyota_brand"/></li>
+									<li>Renault<input type="checkbox" name="reno_brand"/></li>
+									<li>BMW<input type="checkbox" name="bmw_brand"/></li>
+								</ul>
+							</details></p>
 						</ul>
 					</details></p>
 					<p><label for="problem">Опишите проблему или желаемую услугу:</label></br>
