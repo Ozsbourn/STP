@@ -11,25 +11,12 @@
 				<h2>Онлайн-запись на услуги СТО<h2>
 				<img id="picture" src="res/sto.jpg" width="800" height="320"></img>
 				<p>
-					<button onclick="lShift()">Влево</button><button onclick="cShift()">Центрировать</button><button onclick="rShift()">Вправо</button>
+					<button onclick="Shift(0)">Влево</button>
+					<button onclick="Shift(1)">Центрировать</button>
+					<button onclick="Shift(2)">Вправо</button>
+
+					<script src="script.js"></script>
 				</p>
-
-				<script>
-					function lShift(){
-						picture.style = "margin: 0px auto 0px 0px";
-						console.log("left");
-					};
-
-					function rShift(){
-						picture.style = "margin: 0px 0px 0px auto";
-						console.log("right");
-					};
-
-					function cShift(){
-						picture.style = "margin: 0px auto 0px auto";
-						console.log("center");
-					};
-				</script>
 			</div>
 		</header>
 
@@ -58,7 +45,7 @@
 							<ul>
 								<li>Иномарка<input type="checkbox" name="foreign_brand"/></li>
 								<li>Отечественный автомобиль<input type="checkbox" name="domestic_brand"/></li>
-							</ul>a
+							</ul>
 						</details>
 					</p>
 
