@@ -12,14 +12,11 @@ h2 {
   padding-bottom: 12px;
 }
 
-ul {
-  list-style-type: square;
-}
-
 .site-header {
   text-align: center; 
   background-color: #847462;
   color: #ffffff;
+  overflow: hidden;
 }
 
 .site-header img {
@@ -44,8 +41,39 @@ ul {
   min-width: 550px;
   background-color: #847462;
   color: #ffffff;
+  overflow: hidden;
 }
 
 .site-footer .container {
   text-align: center;
+}
+
+/* fs - form_submit page */
+.fs_content {
+  padding:  0;
+  margin: 300px 0px 250px auto;
+  text-align:  center;
+}
+
+/* lr - last_request page */
+.lr_content {
+  padding:  0;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: auto;
+  margin-left: 10px;
+  text-align:  left;
+  font-family: "Calibri", sans-serif;
+  font-size: 18px;
+}
+
+.lr_site-header {
+  text-align: center; 
+  background-color: #847462;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.lr_paragraph {
+  text-decoration: underline;
 }
