@@ -18,58 +18,35 @@ http.createServer(function(request, response){
         }); 
             
         request.on('end', chunk => {
-            fs.writeFileSync(__dirname + '\\1.txt', buf);
+            fs.writeFileSync(__dirname + '\\last_request.dat', buf);
             response.writeHead(200);
             response.end(data);
         }); 
     } else if (request.url == '/last_req.html' || request.url == '/last_req.html?') {
-        var data = fs.readFileSync(__dirname + '\\last_req.html', 'utf-8');
-        var lrequest = fs.readFileSync(__dirname + '\\1.txt', "utf-8");
-        
-        let  name = '';
-        let   tel = '';
-        let  date = '';
-        let brand = '';
-        let  info = '';
+        var data     = fs.readFileSync(__dirname + '\\last_req.html', 'utf-8');
+        var lrequest = fs.readFileSync(__dirname + '\\last_request.dat', "utf-8");
 
         let  origin = 0;
         let limiter = 0;
 
-        if ((origin = lrequest.indexOf('name=')) != -1) {
-            limiter = lrequest.indexOf('&');
-            name = lrequest.slice(origin + 5, limiter);
+        let    buf = [];
+
+        for (let i = 0; i < 5; i++) {
+            if ((origin = lrequest.indexOf('=', limiter)) != -1) {
+                limiter = lrequest.indexOf('&', limiter);
+                buf[i] = lrequest.slice(++origin, limiter);         // (++origin) skip a '=' symbol
+                origin++; limiter++;
+            }
         }
 
-        if ((origin = lrequest.indexOf('telephone=')) != -1) {
-            limiter = lrequest.indexOf('&', limiter + 1);
-            tel = lrequest.slice(origin + 10, limiter);
-        }
-
-        if ((origin = lrequest.indexOf('date=')) != -1) {
-            limiter = lrequest.indexOf('&', limiter + 1);
-            date = lrequest.slice(origin + 5, limiter);
-        }
-
-        if ((origin = lrequest.indexOf('brand=')) != -1) {
-            limiter = lrequest.indexOf('&', limiter + 1);
-            brand = lrequest.slice(origin + 6, limiter);
-        }
-
-        if ((origin = lrequest.indexOf('problem=')) != -1) {
-            limiter = lrequest.indexOf('&', limiter + 1);
-            info = lrequest.slice(origin + 8, limiter);
-        }
-
-        //console.log(name + "\n" + tel + "\n" + date + "\n" + brand + "\n" + info);
         var view = {
-            Name: name,
-            Tel: tel,
-            Date: date,
-            Brand: brand,
-            Problem: info
+            Name:    buf[0],
+            Tel:     buf[1],
+            Date:    buf[2],
+            Brand:   buf[3],
+            Problem: buf[4]
         };
 
-        response.writeHead(200);
         response.end(mustache.render(data, view));
     } else {
         fs.readFile(__dirname + request.url, function (err, data) {
