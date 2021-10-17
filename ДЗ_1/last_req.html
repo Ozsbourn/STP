@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Форма отправлена</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header class="lr_site-header">
+			<p><h2>Последний поданный запрос</h2></p>
+		</header>
+
+		<section class="lr_content">
+			<div>
+				<div>
+					<p class="lr_paragraph">ФИО:</p>
+					<p>{{Name}}</p>
+				</div>
+
+				<div>
+					<p class="lr_paragraph">Телефон:</p>
+					<p>{{Tel}}</p>
+				</div>
+
+				<div>
+					<p class="lr_paragraph">Дата:</p>
+					<p>{{Date}}</p>
+				</div>
+
+				<div>
+					<p class="lr_paragraph">Марка автомобиля:</p>
+					<p>{{Brand}}</p>
+				</div>
+
+				<div>
+					<p class="lr_paragraph">Краткое описание проблемы:</p>
+					<p>{{Problem}}</p>
+				</div>
+			</div>
+		</section>
+
+		<p>
+			<form action="/index.html" class="lr_content">
+				<input type="submit" value="Вернуться на главную"></input>
+			</form>
+		</p>
+
+		<footer class="site-footer">
+	      <div class="container">
+	        <p>© Баранин М.И., 2021</p>
+	        <p>Форма онлайн-записи на СТО</p>
+	      </div>
+	    </footer>
+	</body>
+</html>

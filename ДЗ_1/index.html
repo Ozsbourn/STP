@@ -8,7 +8,7 @@
 	<body>
 		<header class="site-header">
 			<div class="main">
-				<h2>Онлайн-запись на услуги СТО<h2>
+				<h2>Онлайн-запись на услуги СТО</h2>
 				<img id="picture" src="res/sto.jpg" width="800" height="320"></img>
 				
 				<p>
@@ -23,40 +23,41 @@
 
 		<section class="site-content">
 			<div>
-				<form method="post" action="db.php">
+				<form method="post" action="form_submit.html">
 					<p>
 						<label for="name">Укажите свои ФИО:</label></br>
-						<input type="text" name="name"/>
+						<input type="text" name="name" required/>
 					</p>
 
 					<p>
 						<label for="telephone">Укажите свой контактный телефон:</label></br>	
-						<input type="tel" name="telephone"/>
+						<input type="tel" name="telephone" required/>
 					</p>
 
 					<p>
 						<label for="date">Выберите желаемую дату записи:</label></br>
-						<input type="date" name="date"/>
+						<input type="date" name="date" required/>
 					</p>
 
 					<p>
 						<label for="brand">Выберите марку автомобиля:</label></br>
-						<details name="brand">
-							<summary>Марка автомобиля</summary>
-							<ul>
-								<li>Иномарка<input type="checkbox" name="foreign_brand"/></li>
-								<li>Отечественный автомобиль<input type="checkbox" name="domestic_brand"/></li>
-							</ul>
-						</details>
+						<input type="radio" name="brand" value="foreign_brand" required>Иномарка</input>
+						<input type="radio" name="brand" value="domestic_brand" required>Отечественный автомобиль</input>
 					</p>
 
 					<p>
 						<label for="problem">Опишите проблему или желаемую услугу:</label></br>
-						<textarea name="problem" placeholder="Не более 200 символов" maxlength="200"></textarea>
+						<textarea name="problem" placeholder="Не более 200 символов" maxlength="200" required></textarea>
 					</p>
 
 					<p>
 						<input type="submit" name="Записаться"/>
+					</p>
+				</form>
+
+				<form action="last_req.html">
+					<p>
+						<input type="submit" value="Показать последний запрос"/>
 					</p>
 				</form>
 			</div>
