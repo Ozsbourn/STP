@@ -1,7 +1,8 @@
-const http = require("http");
-var fs = require("fs");
+const   http = require("http");
+var       fs = require("fs");
 var mustache = require("mustache");
-const port = 3000;
+
+const   port = 3000;
  
 http.createServer(function(request, response){
     if(request.url == '/index.html' || request.url == '/index.html?') {
@@ -30,11 +31,10 @@ http.createServer(function(request, response){
         let limiter = 0;
 
         let    buf = [];
-
         for (let i = 0; i < 5; i++) {
             if ((origin = lrequest.indexOf('=', limiter)) != -1) {
                 limiter = lrequest.indexOf('&', limiter);
-                buf[i] = lrequest.slice(++origin, limiter);         // (++origin) skip a '=' symbol
+                buf[i]  = lrequest.slice(++origin, limiter);        // (++origin) skip a '=' symbol
                 origin++; limiter++;
             }
         }
@@ -47,6 +47,7 @@ http.createServer(function(request, response){
             Problem: buf[4]
         };
 
+        response.writeHead(200);
         response.end(mustache.render(data, view));
     } else {
         fs.readFile(__dirname + request.url, function (err, data) {
