@@ -2,19 +2,16 @@ function updateForm(){
 	response = fetch('./brands.dat').then(function(response) {
 		return response.text();
 	}).then((data) => {
-		var tmp1 = "";
-		for (let i = 0; i < 12; i++)
-			tmp1 += data[i];
-		document.getElementById("br_val_0").innerHTML = tmp1;
+		let tmp = data.split('\n');
 
-		var tmp2 = "";
-		for (let i = 13; i < 28; i++)
-			tmp2 += data[i];
-		document.getElementById("br_val_1").innerHTML = tmp2;
-
-		var tmp3 = "";
-		for (let i = 28; i < 42; i++)
-			tmp3 += data[i];
-		document.getElementById("br_val_2").innerHTML = tmp3;
+		let addDiv = document.getElementById("br_add");
+		for (let i = 0; i < tmp.length; i++) {
+			if (document.getElementById("br_val_" + i) != null) {
+				document.getElementById("br_val_" + i).innerHTML = tmp[i];
+			} else {
+				addDiv.insertAdjacentHTML('afterend',
+					'<option id="br_val_' + i + '">' + tmp[i] + '</option>');
+			}
+		}
 	})
 }
