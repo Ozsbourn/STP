@@ -13,8 +13,6 @@ function updateForm(){
 			select.length = tmp.length;
 		}
 
-		console.log(tmp);
-
 		let doc;
 		let addDiv = document.querySelector("brands_select");
 		for (let i = 0; i < tmp.length; i++) {
