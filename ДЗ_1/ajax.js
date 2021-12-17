@@ -4,14 +4,21 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}).then((data) => {
 		let tmp = data.split('\n');
 
-		let doc, i;
-		let addDiv = document.getElementById("br_add");
-		for (i = 0; i < tmp.length; i++) {
+		let select = document.getElementById("brands_select");
+		if (tmp.length < select.length) {
+			select.length = tmp.length;
+			console.log("123");
+		}
+
+		let doc;
+		let addDiv = document.querySelector("brands_select");
+		for (let i = 0; i < tmp.length; i++) {
 			if ((doc = document.getElementById("br_val_" + i)) != null) {
 				doc.innerHTML = tmp[i];
 			} else {
-				addDiv.insertAdjacentHTML('afterBegin', '<option id="br_val_added">' + tmp[i] + '</option>');
+				select.appendChild(document.createElement("option"), select.firstChild)
+				select.options[i].text = tmp[i];
 			}
 		}
-	})
+	 })
 });
