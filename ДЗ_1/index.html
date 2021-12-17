@@ -41,9 +41,16 @@
 
 					<p>
 						<label for="brand">Выберите марку автомобиля:</label></br>
-						<input type="radio" name="brand" value="foreign_brand" required>Иномарка</input>
-						<input type="radio" name="brand" value="domestic_brand" required>Отечественный автомобиль</input>
+						<select name="dropdown" id="brands_select" class="dropdown" onclick="updateForm()">
+							<option id="br_val_0" default required>none</option>
+							<option id="br_val_1">1</option>
+							<option id="br_val_2">2</option>
+							<option id="br_val_3">3</option>
+						</select>
+						
 					</p>
+					
+					<script src="ajax.js"></script>
 
 					<p>
 						<label for="problem">Опишите проблему или желаемую услугу:</label></br>
